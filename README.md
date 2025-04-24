@@ -9,4 +9,4 @@ Go into your **locallow** folder in your **appdata**, you can do that by pasting
 ## How do i use the assembler?
 Read the **instructions** in the **assembler** folder
 
-Right now i don't have a linux exe, but if you're desparate, you can compile main.cpp and figure everything out from there
+Right now i don't have a linux binary, but if you're desparate, you can compile main.cpp and figure everything out from there
