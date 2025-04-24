@@ -211,8 +211,6 @@ void compile_program(const vector<Instruction>& instructions, const string& outp
         rom1_bits += parse_dest(inst.dest);
         rom1_bits += arg2.first;
         rom1_bits += arg1.first;
-        
-        // Reverse the entire 16-bit string
         rom1 += rom1_bits + "\n";
         
         // ROM2: Destination address + opcode (16 bits total)
@@ -229,8 +227,6 @@ void compile_program(const vector<Instruction>& instructions, const string& outp
         // Second byte: opcode (only first 4 bits used) + padding
 		rom2_bits += "0000"; // Padding
         rom2_bits += to_binary_string(alu_opcodes[inst.opcode], 4);
-        
-        // Reverse the entire 16-bit string
         rom2 += rom2_bits + "\n";
         
         // ROM3: Arguments (16 bits total)
@@ -249,8 +245,6 @@ void compile_program(const vector<Instruction>& instructions, const string& outp
         } else {
             rom3_bits += "00000000";
         }
-        
-        // Reverse the entire 16-bit string
         rom3 += rom3_bits + "\n";
     }
     
