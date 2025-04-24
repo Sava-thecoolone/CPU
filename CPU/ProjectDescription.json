@@ -1,0 +1,159 @@
+{
+  "ProjectName": "CPU",
+  "DLSVersion_LastSaved": "2.1.3",
+  "DLSVersion_EarliestCompatible": "2.0.0",
+  "CreationTime": "2025-04-17T16:37:39.690+04:00",
+  "LastSaveTime": "2025-04-24T20:04:00.034+04:00",
+  "Prefs_MainPinNamesDisplayMode": 1,
+  "Prefs_ChipPinNamesDisplayMode": 1,
+  "Prefs_GridDisplayMode": 1,
+  "Prefs_Snapping": 1,
+  "Prefs_StraightWires": 0,
+  "Prefs_SimPaused": true,
+  "Prefs_SimTargetStepsPerSecond": 1000,
+  "Prefs_SimStepsPerClockTick": 7,
+  "AllCustomChipNames":[
+    "NOT",
+    "OR",
+    "AND",
+    "XOR",
+    "SR-latch",
+    "REG",
+    "MTRX_REG",
+    "2-BIT_MULT",
+    "16-REG",
+    "4-OR",
+    "MTRX_16-REG",
+    "16x16-REG",
+    "1-ADD",
+    "4-ADD",
+    "ALU",
+    "256x8-REG",
+    "RISE",
+    "SYNC_256x16-RAM",
+    "8-ADD",
+    "NEGATE-8",
+    "SYNC_BYTE-REG",
+    "8x2-OR",
+    "8x2-AND",
+    "8x2-XOR",
+    "XNOR",
+    "EQUAL-4",
+    "1",
+    "0",
+    "4-AND",
+    "BYTE 3-STATE BUFFER",
+    "4-8MUX",
+    "8-1AND",
+    "COUNTER",
+    "1-8MUX",
+    "RISE2",
+    "DELAY1",
+    "BYTE-REG",
+    "8-DELAY",
+    "SYNC_REG",
+    "DELAY",
+    "LONGIFY",
+    "DELAY2",
+    "DELAY-RNG",
+    "SELECT-2",
+    "2-8MUX",
+    "RISE3",
+    "COMPUTER",
+    "LFSR",
+    "COMPUTER-FIB"
+  ],
+  "StarredList":[
+    {
+      "Name":"IN/OUT",
+      "IsCollection":true
+    },
+    {
+      "Name":"MERGE/SPLIT",
+      "IsCollection":true
+    },
+    {
+      "Name":"LOGIC",
+      "IsCollection":true
+    },
+    {
+      "Name":"BASIC",
+      "IsCollection":true
+    },
+    {
+      "Name":"MEMORY",
+      "IsCollection":true
+    },
+    {
+      "Name":"DISPLAY",
+      "IsCollection":true
+    },
+    {
+      "Name":"OTHER",
+      "IsCollection":true
+    },
+    {
+      "Name":"ARITHMETIC",
+      "IsCollection":true
+    },
+    {
+      "Name":"COMPUTER",
+      "IsCollection":false
+    },
+    {
+      "Name":"LFSR",
+      "IsCollection":false
+    },
+    {
+      "Name":"COMPUTER-FIB",
+      "IsCollection":false
+    }
+  ],
+  "ChipCollections":[
+    {
+      "Chips":["CLOCK","KEY","3-STATE BUFFER","BYTE 3-STATE BUFFER"],
+      "IsToggledOpen":false,
+      "Name":"BASIC"
+    },
+    {
+      "Chips":["IN-1","IN-4","IN-8","OUT-1","OUT-4","OUT-8"],
+      "IsToggledOpen":false,
+      "Name":"IN/OUT"
+    },
+    {
+      "Chips":["1-4BIT","1-8BIT","4-8BIT","4-1BIT","8-4BIT","8-1BIT"],
+      "IsToggledOpen":false,
+      "Name":"MERGE/SPLIT"
+    },
+    {
+      "Chips":["BUS-1","BUS-4","BUS-8"],
+      "IsToggledOpen":false,
+      "Name":"BUS"
+    },
+    {
+      "Chips":["4-AND","4-OR","NAND","XOR","AND","OR","NOT","8x2-OR","8x2-AND","8x2-XOR","XNOR","1","0","8-1AND"],
+      "IsToggledOpen":false,
+      "Name":"LOGIC"
+    },
+    {
+      "Chips":["7-SEGMENT","DOT DISPLAY","RGB DISPLAY","LED"],
+      "IsToggledOpen":false,
+      "Name":"DISPLAY"
+    },
+    {
+      "Chips":["ROM 256×16","SR-latch","REG","MTRX_REG","16-REG","MTRX_16-REG","16x16-REG","256x8-REG","SYNC_256x16-RAM","BYTE-REG","SYNC_BYTE-REG"],
+      "IsToggledOpen":false,
+      "Name":"MEMORY"
+    },
+    {
+      "Chips":["2-BIT_MULT","RISE","RISE2","DELAY1","NEGATE-8","EQUAL-4","4-8MUX","COUNTER","1-8MUX","8-DELAY","SYNC_REG","DELAY","LONGIFY","DELAY2","DELAY-RNG","SELECT-2","2-8MUX","RISE3","COMPUTER","PULSE","LFSR"],
+      "IsToggledOpen":true,
+      "Name":"OTHER"
+    },
+    {
+      "Chips":["8-ADD","ALU","4-ADD","1-ADD"],
+      "IsToggledOpen":false,
+      "Name":"ARITHMETIC"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+HOW TO USE THIS THING:
+1. make a project, i'd prefer .asm extention since it's literally assembly
+2. write some code it in
+3. run the program to compile it (main.exe) without any arguments to see what arguments it needs
+IT'S A CLI TOOL! PLEASE RUN main.exe IN A CMD WINDOW!!!
+4. copy each *_rom*.bin file into it's corresponding ROM (top to bottom), don't forget to clean it if you had bigger scripts in there!
+5. PRESS THE START BUTTON
+
+EXAMPLE COMMAND ORDER:
+cd "C: place where you saved this (put in quotes if has spaces)"
+main.exe examples/fibonacci.asm test
+
+and now you'd have 3 test_rom*.bin files, you can open them, then ctrl + a and ctrl + c and then paste each to it's corresponding ROM via "paste all" in the simulation
+again, press "clear all" first!
+
+HOW TO ACTUALLY CODE IN IT:
+each instruction has 3 arguments (except for MOV and JMP) -
+2 that go into the function and the 3rd should come after a ->, it's where the result should be stored
+
+location aliases:
+put a % behind a value - screen
+put a $ - ROM
+A - register A
+B - register B
+and # - just a value, though you don't have to put it there (treated as constant)
+you can also use [ ] to use dynamic addressing, which will use the resulting value as an address rather than the value, also:
+you can put a register alias in there to use that register as the value to write
+put % behind it to write to the screen
+
+OPERATIONS:
+MOV - write a value
+ADD - add arguments
+SUB - subtract arguments
+OR - apply logic OR on arguments
+AND - apply logic AND on arguments
+XOR - apply logic XOR on arguments
+JZ - jump to the value of the 2nd argument if the 1st argument is 0
+JZA - same as JZ but adds the value of the 2nd argument instead
+JZS - same as JZ but subtracts the value of the 2nd argument instead
+JMP - jump to the location of the value of 1st argument
+remember! when jumping, command addresses start at 0! also, they ignore comments
+
+SCREEN CLARIFICATIONS:
+1st bit - pixel state
+2nd bit - reset the whole screen
+
+please report any bugs if found
