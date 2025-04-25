@@ -28,6 +28,11 @@ You can also use [ ] to use dynamic addressing, which will use the resulting val
 You can put a register alias in there to use that register as the value to write
 Put % behind it to write to the screen
 
+NEW:
+Labels! You can make a label by putting a ~ behind it's name
+You can use ~[label name] to read the corresponding label command address
+i'd recommend looking at label_test in examples to understand it a bit better
+
 OPERATIONS:
 MOV - write a value
 ADD - add arguments
