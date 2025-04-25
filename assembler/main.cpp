@@ -37,6 +37,8 @@ map<char, pair<string, bool>> arg_types = {
     {'[', {"000", false}}  // Default for dynamic addressing
 };
 
+map<string, int> labels = {};
+
 struct Instruction {
     string opcode;
     string arg1;
@@ -65,6 +67,8 @@ vector<Instruction> parse_program(const string& program) {
     vector<Instruction> instructions;
     istringstream iss(program);
     string line;
+	
+	int i = 0;
     
     while (getline(iss, line)) {
         // Remove comments
@@ -74,6 +78,11 @@ vector<Instruction> parse_program(const string& program) {
         line = trim(line);
         
         if (line.empty()) continue;
+		
+		if (line[0] == '~') {
+			labels.emplace(line.substr(1), i);
+			continue;
+		}
         
         Instruction inst;
         size_t space_pos = line.find(' ');
@@ -127,6 +136,7 @@ vector<Instruction> parse_program(const string& program) {
         }
         
         instructions.push_back(inst);
+		i++;
     }
     
     return instructions;
@@ -134,6 +144,8 @@ vector<Instruction> parse_program(const string& program) {
 
 pair<string, string> parse_arg(const string& arg) {
     if (arg.empty()) return {"000", "00000000"};
+	
+	if (arg[0] == '~') return {"000", to_string(labels[arg.substr(1)])};
 	
 	if (arg.size() >= 3 && arg[0] == '%' && arg[1] == '[') {
         size_t close_bracket = arg.find(']');
@@ -211,6 +223,8 @@ void compile_program(const vector<Instruction>& instructions, const string& outp
         rom1_bits += parse_dest(inst.dest);
         rom1_bits += arg2.first;
         rom1_bits += arg1.first;
+        
+        // Reverse the entire 16-bit string
         rom1 += rom1_bits + "\n";
         
         // ROM2: Destination address + opcode (16 bits total)
@@ -227,6 +241,8 @@ void compile_program(const vector<Instruction>& instructions, const string& outp
         // Second byte: opcode (only first 4 bits used) + padding
 		rom2_bits += "0000"; // Padding
         rom2_bits += to_binary_string(alu_opcodes[inst.opcode], 4);
+        
+        // Reverse the entire 16-bit string
         rom2 += rom2_bits + "\n";
         
         // ROM3: Arguments (16 bits total)
@@ -245,6 +261,8 @@ void compile_program(const vector<Instruction>& instructions, const string& outp
         } else {
             rom3_bits += "00000000";
         }
+        
+        // Reverse the entire 16-bit string
         rom3 += rom3_bits + "\n";
     }
     
