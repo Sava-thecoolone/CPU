@@ -1,5 +1,5 @@
 HOW TO USE THIS THING:
-1. Make a project, i'd prefer .asm extention since it's literally assembly
+1. Make a project, i'd prefer .asm extension since it's literally assembly
 2. Write some code it in
 3. Run the program to compile it (main.exe) without any arguments to see what arguments it needs
 IT'S A CLI TOOL! PLEASE RUN main.exe IN A CMD WINDOW!!!
