@@ -42,6 +42,7 @@ JMP - jump to the location of the value of 1st argument
 remember! when jumping, command addresses start at 0! also, they ignore comments
 
 SCREEN CLARIFICATIONS:
+The screen is 8x8, addressed via 1 byte, going from bottom left to top right, from left to right
 1st bit - pixel state
 2nd bit - reset the whole screen
 
