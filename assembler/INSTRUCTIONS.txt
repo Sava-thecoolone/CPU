@@ -25,7 +25,7 @@ A - register A
 B - register B
 And # - just a value, though you don't have to put it there (treated as constant)
 You can also use [ ] to use dynamic addressing, which will use the resulting value as an address rather than the value, also:
-You can put a register alias in there to use that register as the value to write
+You must put a register alias in there to use that register as the value to write
 Put % behind it to write to the screen
 
 NEW:
@@ -50,5 +50,9 @@ SCREEN CLARIFICATIONS:
 The screen is 8x8, addressed via 1 byte, going from bottom left to top right, from left to right
 1st bit - pixel state
 2nd bit - reset the whole screen
+
+ONE LAST THING:
+this CPU can only do 1 operation at 1 address at a time, so, youu can't do ADD $2, $1 -> $0
+BUT, you can do an operation if you're using 1 address, so, you can do ADD $0, $0 -> $0
 
 Please report any bugs if found
