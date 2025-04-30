@@ -63,12 +63,18 @@ string reverse_bits(const string& bits) {
     return reversed;
 }
 
+int command = 0;
+int atLine = 0;
+bool parsing = true;
+
 vector<Instruction> parse_program(const string& program) {
     vector<Instruction> instructions;
     istringstream iss(program);
     string line;
 	
-	int i = 0;
+	command = 0;
+	atLine = 0;
+	parsing = true;
     
     while (getline(iss, line)) {
         // Remove comments
@@ -76,11 +82,13 @@ vector<Instruction> parse_program(const string& program) {
         
         // Trim whitespace
         line = trim(line);
+		
+		atLine++;
         
         if (line.empty()) continue;
 		
 		if (line[0] == '~') {
-			labels.emplace(line.substr(1), i);
+			labels.emplace(line.substr(1), command);
 			continue;
 		}
         
@@ -136,7 +144,7 @@ vector<Instruction> parse_program(const string& program) {
         }
         
         instructions.push_back(inst);
-		i++;
+		command++;
     }
     
     return instructions;
@@ -208,6 +216,9 @@ string to_binary_string(uint8_t value, int bits) {
 
 void compile_program(const vector<Instruction>& instructions, const string& output_prefix) {
     string rom1, rom2, rom3;
+	parsing = false;
+	atLine = 0;
+	command = 0;
     
     for (const auto& inst : instructions) {
         // Parse arguments
@@ -264,6 +275,7 @@ void compile_program(const vector<Instruction>& instructions, const string& outp
         
         // Reverse the entire 16-bit string
         rom3 += rom3_bits + "\n";
+		command++;
     }
     
     // Write output files
@@ -304,7 +316,7 @@ int main(int argc, char* argv[]) {
         auto instructions = parse_program(program);
         compile_program(instructions, argv[2]);
     } catch (const exception& e) {
-        cerr << "Compilation error: " << e.what() << "\n";
+        cerr << "Compilation error: " << e.what() << "\nOn command: " << command << "\nAt line: " << atLine << "\nWhile parsing: " << (parsing ? "true" : "false");
         return 1;
     }
     
